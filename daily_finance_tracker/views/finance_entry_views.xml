@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_finance_entry_tree" model="ir.ui.view">
+        <field name="name">finance.entry.tree</field>
+        <field name="model">finance.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Finance Records">
+                <field name="date"/>
+                <field name="type"/>
+                <field name="description"/>
+                <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_finance_entry_form" model="ir.ui.view">
+        <field name="name">finance.entry.form</field>
+        <field name="model">finance.entry</field>
+        <field name="arch" type="xml">
+            <form string="Finance Entry">
+                <group>
+                    <field name="date"/>
+                    <field name="type"/>
+                    <field name="description"/>
+                    <field name="amount"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_finance_entry" model="ir.actions.act_window">
+        <field name="name">Finance Records</field>
+        <field name="res_model">finance.entry</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Use this to record inflow and outflow per day.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_finance_root" name="Finance Tracker" sequence="10"/>
+    <menuitem id="menu_finance_entry" name="Daily Records" parent="menu_finance_root" action="action_finance_entry"/>
+</odoo>

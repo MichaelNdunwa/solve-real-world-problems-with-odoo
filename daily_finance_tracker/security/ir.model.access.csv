@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_finance_entry_user,access.finance.entry.user,model_finance_entry,base.group_user,1,1,1,1
+access_import_wizard_user,access.import.wizard.user,model_finance_entry_import_wizard,base.group_user,1,1,1,0
