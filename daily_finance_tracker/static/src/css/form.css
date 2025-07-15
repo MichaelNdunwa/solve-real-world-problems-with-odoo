@@ -1,0 +1,6 @@
+.entry-row input, .entry-row select {
+    height: 40px;
+}
+.remove-entry {
+    margin-top: 5px;
+}

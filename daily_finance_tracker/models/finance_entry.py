@@ -19,4 +19,4 @@ class FinanceEntry(models.Model):
         # auto-assign current user if missing
         if not vals.get('user_id'):
             vals['user_id'] = self.env.uid
-        return super().create
+        return super().create(vals)

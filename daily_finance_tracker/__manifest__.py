@@ -11,8 +11,9 @@
         "security/security.xml",
         "security/ir.model.access.csv",
         "views/finance_entry_views.xml",
-        "views/import_wizard_views.xml",
+        "views/import_wizard_view.xml",
         "views/finance_entry_templates.xml",
+        "views/finance_entry_report.xml",
     ],
     "assets" : {
         "web.assets_frontend" : [

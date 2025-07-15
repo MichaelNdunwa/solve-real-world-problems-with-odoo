@@ -2,7 +2,7 @@
     <data>
         <record id="model_finance_entry_rule_user" model="ir.rule">
             <field name="name">Finance Entry: User Only</field>
-            <field name="model_id" ref="mdoel_finance_entry"/>
+            <field name="model_id" ref="model_finance_entry"/>
             <field name="domain_force">[('user_id', '=', user.id)]</field>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
         </record>

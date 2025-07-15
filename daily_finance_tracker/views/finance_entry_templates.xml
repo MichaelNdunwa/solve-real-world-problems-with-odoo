@@ -1,0 +1,21 @@
+<odoo>
+    <template id="template_finance_form" name="Finance Form Page" inherit_id="website.layout">
+        <xpath expr="//main" position="replace">
+            <main class="container mt-5 mb-5">
+                <div class="card shadow p-4">
+                    <h2 class="mb-4 text-center">Daily Finance Tracker</h2>
+
+                    <div id="form-wrapper">
+                        <input type="date" id="entry-date" class="form-control mb-3" value=""/>
+                        <div id="entries-container"></div>
+                        <button class="btn btn-outline-primary" id="add-entry-btn" type="button">Add Record</button>
+                        <hr/>
+                        <button class="btn btn-success mt-2" id="submit-entries-btn" type="button">Submit All Records</button>
+                    </div>
+
+                    <div id="success-msg" class="alert alert-success mt-4 d-none">Records submitted successfully!</div>
+                </div>
+            </main>
+        </xpath>
+    </template>
+</odoo>
