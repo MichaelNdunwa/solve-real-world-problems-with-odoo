@@ -12,11 +12,11 @@ class FinanceEntry(models.Model):
     ], required=True)
     description = fields.Char(required=True)
     amount = fields.Float(required=True)
-    user_id = fields.Many2one('res.users', string='User', default=lambda self: self.env.uid, readyonly=True)
+    user_id = fields.Many2one('res.users', string='User', default=lambda self: self.env.uid, readonly=True)
     
-    @api.model
-    def create(self, vals):
-        # auto-assign current user if missing
-        if not vals.get('user_id'):
-            vals['user_id'] = self.env.uid
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get('user_id'):
+                vals['user_id'] = self.env.uid
+        return super().create(vals_list)

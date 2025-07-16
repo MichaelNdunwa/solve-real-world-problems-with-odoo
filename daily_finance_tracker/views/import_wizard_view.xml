@@ -22,19 +22,7 @@
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
-
-        <!-- <act_window id="action_open_import_wizard" 
-                    name="Upload Excel"
-                    res_model="finance.entry.import.wizard"
-                    view_model="form"
-                    target="new"/> -->
-        <record id="action_import_wizard" model="ir.actions.act_window">
-            <field name="name">Upload Past Records</field>
-            <field name="res_model">finance.entry.import.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
-        </record>
-
+        
         <menuitem id="menu_finance_import"
                     name="Upload Excel" 
                     parent="menu_finance_root" 
