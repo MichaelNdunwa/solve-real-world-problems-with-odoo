@@ -5,7 +5,6 @@
     "description" : "This module allows users to track their daily financial transactions, including income and expenses. It features a user-friendly frontend for data entry and supports backend operations such as importing Excel files for bulk data management and exporting pdf",
     "author" : "Michael Ndunwa",
     "category" : "Accounting",
-    # "depends" : ["base", "web", "website", "portal", "auth_signup", "mail"],
     "depends" : ["base", "web", "portal", "auth_signup", "mail"],
     "data" : [
         "security/security.xml",

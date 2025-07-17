@@ -32,7 +32,7 @@
         <field name="res_model">finance.entry</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
-            <p>Use this to record inflow and outflow per day.</p>
+            <p>Use this to record inflow and outflow per day ✍️.</p>
         </field>
     </record>
 

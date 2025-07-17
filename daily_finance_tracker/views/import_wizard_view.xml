@@ -7,9 +7,28 @@
                 <form string="Upload Past Records" enctype="multipart/form-data">
                     <group>
                         <field name="upload_file" filename="filename"/>
+                        <field name="available_sheets" 
+                               invisible="available_sheets == False"
+                               readonly="1"/>
+                        <field name="sheet_name" 
+                               placeholder="Enter sheet name"
+                               required="upload_file != False"/>
                     </group>
+                    <div class="alert alert-info" role="alert" invisible="available_sheets == False">
+                        <strong>Instructions:</strong>
+                        <ul>
+                            <li>Upload your Excel file first</li>
+                            <li>Available sheets will be displayed above</li>
+                            <li>Enter the exact sheet name you want to import</li>
+                            <li>Expected columns: Date, Type, Description, Amount</li>
+                        </ul>
+                    </div>
                     <footer>
-                        <button string="Import" type="object" name="action_import" class="btn-primary"/>
+                        <button string="Import" 
+                                type="object" 
+                                name="action_import" 
+                                class="btn-primary"
+                                invisible="available_sheets == False"/>
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>
@@ -29,5 +48,4 @@
                     action="action_import_wizard" 
                     sequence="20"/>
     </data>
-    
 </odoo>
