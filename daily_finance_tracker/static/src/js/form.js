@@ -1,22 +1,28 @@
-odoo.define('daily_finance_tracker.form', function(require) {
-    "use strict";
+odoo.define('daily_finance_tracker.form', [], function(require) {
+    'use strict';
 
-    const publicWidget = require('web.public.widget');
-
-    publicWidget.registry.FinanceForm = publicWidget.Widget.extend({
-        selector: '#form-wrapper',
-        events: {
-            'click #add-entry-btn': '_onAddEntry',
-            'click #submit-entries-btn': '_onSubmitEntries',
-            'click .remove-entry': '_onRemoveEntry',
-        },
-
-        start: function() {
-            this._super.apply(this, arguments);
-            this._onAddEntry(); // add an initial entry row
-        },
-
-        _onAddEntry: function() {
+    // Use DOM ready approach for frontend JavaScript
+    $(document).ready(function() {
+        
+        // Initialize the form
+        addEntry(); // Load one row by default
+        
+        // Add entry button handler
+        $('#add-entry-btn').on('click', function() {
+            addEntry();
+        });
+        
+        // Remove entry button handler (using event delegation)
+        $(document).on('click', '.remove-entry', function() {
+            $(this).closest('.entry-row').remove();
+        });
+        
+        // Submit entries button handler
+        $('#submit-entries-btn').on('click', function() {
+            submitEntries();
+        });
+        
+        function addEntry() {
             const row = `
                 <div class="entry-row border rounded p-3 mb-3">
                     <div class="row">
@@ -39,13 +45,9 @@ odoo.define('daily_finance_tracker.form', function(require) {
                 </div> 
             `;
             $('#entries-container').append(row);
-        },
-
-        _onRemoveEntry: function (ev) {
-            $(ev.currentTarget).closest('.entry-row').remove();
-        },
-
-        _onSubmitEntries: function () {
+        }
+        
+        function submitEntries() {
             const date = $('#entry-date').val();
             const entries = [];
 
@@ -69,15 +71,31 @@ odoo.define('daily_finance_tracker.form', function(require) {
                 return;
             }
 
-            // use ajax call to send entries to the backend
-            ajax.jsonRpc("/finance/submit", 'call', {
-                entries: entries
-            }).then(function () {
-                $('#success-msg').removeClass('d-none');
-                $('#entries-container').html('');
+            // Use jQuery AJAX with proper JSON-RPC format
+            $.ajax({
+                url: '/finance/submit',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    jsonrpc: '2.0',
+                    method: 'call',
+                    params: { entries: entries },
+                    id: Math.floor(Math.random() * 1000)
+                }),
+                success: function(response) {
+                    if (response.result && response.result.status === 'success') {
+                        $('#success-msg').removeClass('d-none');
+                        $('#entries-container').html('');
+                        addEntry(); // Add one empty row back
+                    } else {
+                        alert('Error submitting entries. Please try again.');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error submitting entries:', error);
+                    alert('Error submitting entries. Please try again.');
+                }
             });
-        },
+        }
     });
-
-    return publicWidget.registry.FinanceForm;
 });

@@ -22,4 +22,4 @@ class FinanceEntryController(http.Controller):
                     'amount': float(entry['amount']),
                     'user_id': request.env.uid
                 })
-            return {'status': 'success'}
+        return {'status': 'success'}
