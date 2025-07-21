@@ -1,6 +1,63 @@
-.entry-row input, .entry-row select {
-    height: 40px;
+.neu-card {
+    background: #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #bebebe,
+                -10px -10px 20px #ffffff;
+    padding: 30px;
+}
+.neu-input {
+    border: none;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: inset 4px 4px 8px #bebebe,
+                inset -4px -4px 8px #ffffff;
+    padding: 10px 15px;
+    width: 100%;
+    color: #333;
+}
+.neu-entry {
+    background: #e0e0e0;
+    border-radius: 15px;
+    box-shadow: inset 3px 3px 6px #bebebe,
+                inset -3px -3px 6px #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.neu-btn {
+    border: none;
+    border-radius: 12px;
+    background: #e0e0e0;
+    box-shadow: 5px 5px 10px #bebebe,
+                -5px -5px 10px #ffffff;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    color: #333;
+}
+.neu-btn:active {
+    box-shadow: inset 5px 5px 10px #bebebe,
+                inset -5px -5px 10px #ffffff;
 }
 .remove-entry {
+    background: #e0e0e0;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 4px 4px 8px #bebebe,
+                -4px -4px 8px #ffffff;
+    width: 36px;
+    height: 36px;
     margin-top: 5px;
+    font-size: 18px;
+    line-height: 1;
+}
+.shadow {
+    box-shadow: none !important;
+}
+#succes-msg {
+    background: #dff0d8;
+    color: #3c763d;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: inset 2px 2px 4px #bebebe,
+                inset -2px -2px 4px #ffffff;
 }
