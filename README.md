@@ -1,5 +1,3 @@
-# README.md
-
 # 🧹 Cleaning Service Booking Platform (Odoo 18 Community)
 
 ## 📌 Overview
